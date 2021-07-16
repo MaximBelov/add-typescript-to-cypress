@@ -43,7 +43,8 @@
     "unit": "mocha src/*-spec.js",
     "unused-deps": "dependency-check --unused --no-dev . --entry src/add-plugin.js --entry src/plugin.js",
     "postinstall": "node src/add-plugin.js",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "commit": "commit-wizard"
   },
   "devDependencies": {
     "ban-sensitive-files": "1.9.2",
@@ -62,8 +63,11 @@
     "webpack": "4.36.0"
   },
   "dependencies": {
-    "@cypress/webpack-preprocessor": "4.1.0",
+    "@babel/core": "7.14.6",
+    "@babel/preset-env": "7.14.7",
+    "@cypress/webpack-preprocessor": "5.9.1",
     "am-i-a-dependency": "1.1.2",
+    "babel-loader": "8.2.2",
     "chalk": "2.4.2",
     "debug": "4.1.1",
     "shelljs": "0.8.3",
@@ -72,5 +76,18 @@
   },
   "peerDependencies": {
     "typescript": "*"
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
   }
 }
